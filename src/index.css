@@ -1,0 +1,441 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  /* Light Theme Tokens */
+  :root {
+    color-scheme: light;
+    --bg-canvas: #F4F7FB;
+    --bg-elevated: #FFFFFF;
+    --bg-elevated-alt: #F8FAFC;
+    --bg-header: rgba(244, 247, 251, 0.86);
+    --bg-nav-mobile: rgba(255, 255, 255, 0.94);
+    --bg-backdrop: rgba(15, 23, 42, 0.45);
+    --bg-select-option: #FFFFFF;
+
+    --surface-glass: rgba(255, 255, 255, 0.86);
+    --surface-glass-hover: rgba(255, 255, 255, 0.98);
+    --surface-tile: rgba(241, 245, 249, 0.90);
+    --surface-control: rgba(15, 23, 42, 0.045);
+    --surface-control-hover: rgba(15, 23, 42, 0.09);
+    --surface-track: rgba(15, 23, 42, 0.11);
+
+    --border-glass: rgba(15, 23, 42, 0.09);
+    --border-glass-hover: rgba(15, 23, 42, 0.17);
+    --border-subtle: rgba(15, 23, 42, 0.07);
+    --border-control: rgba(15, 23, 42, 0.13);
+    --border-strong: rgba(15, 23, 42, 0.18);
+
+    --text-primary: #0B1220;
+    --text-secondary: #4B5565;
+    --text-on-accent: #FFFFFF;
+
+    --accent-mint: #059669;
+    --accent-cyan: #0284C7;
+    --cta-from: #059669;
+    --cta-to: #0284C7;
+    --cta-shadow: 0 10px 28px rgba(5, 150, 105, 0.22);
+
+    --active-tab-from: rgba(5, 150, 105, 0.13);
+    --active-tab-to: rgba(2, 132, 199, 0.13);
+    --active-tab-border: rgba(5, 150, 105, 0.35);
+
+    --status-good: #059669;
+    --status-good-bg: rgba(5, 150, 105, 0.10);
+    --status-good-border: rgba(5, 150, 105, 0.28);
+
+    --status-cyan-bg: rgba(2, 132, 199, 0.10);
+    --status-cyan-border: rgba(2, 132, 199, 0.28);
+
+    --status-fair: #B45309;
+    --status-fair-bg: rgba(217, 119, 6, 0.11);
+    --status-fair-border: rgba(217, 119, 6, 0.30);
+
+    --status-poor: #E11D48;
+    --status-poor-bg: rgba(225, 29, 72, 0.10);
+    --status-poor-border: rgba(225, 29, 72, 0.28);
+
+    --hero-grad-from: #0B1220;
+    --hero-grad-via: #059669;
+    --hero-grad-to: #0284C7;
+
+    --shadow-card: 0 18px 42px -24px rgba(15, 23, 42, 0.16), 0 2px 8px -2px rgba(15, 23, 42, 0.05);
+    --glow-mint: rgba(16, 185, 129, 0.10);
+    --glow-cyan: rgba(14, 165, 233, 0.10);
+
+    --slider-thumb-bg: #FFFFFF;
+    --slider-thumb-border: #059669;
+    --slider-thumb-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
+    --slider-focus-ring: rgba(5, 150, 105, 0.25);
+
+    --gauge-track: rgba(15, 23, 42, 0.09);
+    --gauge-good-start: #10B981;
+    --gauge-good-end: #0284C7;
+    --gauge-fair-start: #F59E0B;
+    --gauge-fair-end: #10B981;
+    --gauge-poor-start: #E11D48;
+    --gauge-poor-end: #F59E0B;
+
+    --dial-bargain: #10B981;
+    --dial-fair: #0284C7;
+    --dial-over: #F59E0B;
+    --dial-high: #E11D48;
+  }
+
+  /* Dark Theme Tokens */
+  .dark {
+    color-scheme: dark;
+    --bg-canvas: #07090D;
+    --bg-elevated: #0B0F17;
+    --bg-elevated-alt: #080B11;
+    --bg-header: rgba(7, 9, 13, 0.80);
+    --bg-nav-mobile: rgba(7, 9, 13, 0.92);
+    --bg-backdrop: rgba(7, 9, 13, 0.80);
+    --bg-select-option: #0E1219;
+
+    --surface-glass: rgba(255, 255, 255, 0.04);
+    --surface-glass-hover: rgba(255, 255, 255, 0.06);
+    --surface-tile: rgba(255, 255, 255, 0.03);
+    --surface-control: rgba(255, 255, 255, 0.05);
+    --surface-control-hover: rgba(255, 255, 255, 0.095);
+    --surface-track: rgba(255, 255, 255, 0.08);
+
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-hover: rgba(255, 255, 255, 0.14);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-control: rgba(255, 255, 255, 0.11);
+    --border-strong: rgba(255, 255, 255, 0.16);
+
+    --text-primary: #F4F7FB;
+    --text-secondary: #8B95A7;
+    --text-on-accent: #07090D;
+
+    --accent-mint: #2DFFB2;
+    --accent-cyan: #3AB8FF;
+    --cta-from: #2DFFB2;
+    --cta-to: #3AB8FF;
+    --cta-shadow: 0 10px 30px rgba(45, 255, 178, 0.28);
+
+    --active-tab-from: rgba(45, 255, 178, 0.20);
+    --active-tab-to: rgba(58, 184, 255, 0.20);
+    --active-tab-border: rgba(45, 255, 178, 0.35);
+
+    --status-good: #2DFFB2;
+    --status-good-bg: rgba(45, 255, 178, 0.12);
+    --status-good-border: rgba(45, 255, 178, 0.30);
+
+    --status-cyan-bg: rgba(58, 184, 255, 0.12);
+    --status-cyan-border: rgba(58, 184, 255, 0.30);
+
+    --status-fair: #FFC857;
+    --status-fair-bg: rgba(255, 200, 87, 0.12);
+    --status-fair-border: rgba(255, 200, 87, 0.30);
+
+    --status-poor: #FF5C7A;
+    --status-poor-bg: rgba(255, 92, 122, 0.12);
+    --status-poor-border: rgba(255, 92, 122, 0.30);
+
+    --hero-grad-from: #F4F7FB;
+    --hero-grad-via: #2DFFB2;
+    --hero-grad-to: #3AB8FF;
+
+    --shadow-card: 0 20px 50px -24px rgba(0, 0, 0, 0.75);
+    --glow-mint: rgba(45, 255, 178, 0.08);
+    --glow-cyan: rgba(58, 184, 255, 0.08);
+
+    --slider-thumb-bg: #F4F7FB;
+    --slider-thumb-border: #2DFFB2;
+    --slider-thumb-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+    --slider-focus-ring: rgba(45, 255, 178, 0.28);
+
+    --gauge-track: rgba(255, 255, 255, 0.08);
+    --gauge-good-start: #2DFFB2;
+    --gauge-good-end: #3AB8FF;
+    --gauge-fair-start: #FFC857;
+    --gauge-fair-end: #2DFFB2;
+    --gauge-poor-start: #FF5C7A;
+    --gauge-poor-end: #FFC857;
+
+    --dial-bargain: #2DFFB2;
+    --dial-fair: #3AB8FF;
+    --dial-over: #FFC857;
+    --dial-high: #FF5C7A;
+  }
+
+  html {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Soft ambient radial glows */
+.cellscore-backdrop {
+  background-color: var(--bg-canvas);
+  background-image:
+    radial-gradient(circle 680px at 8% 4%, var(--glow-mint), transparent 70%),
+    radial-gradient(circle 720px at 92% 94%, var(--glow-cyan), transparent 70%);
+}
+
+/* Glass card surface */
+.glass-card {
+  background: var(--surface-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-card);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-glass-hover);
+}
+
+/* Inner subtle tile inside a glass card */
+.glass-tile {
+  background: var(--surface-tile);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+/* Theme-aware segmented control active button */
+.cs-seg-active {
+  background-image: linear-gradient(to right, var(--active-tab-from), var(--active-tab-to));
+  color: var(--text-primary);
+  border-color: var(--active-tab-border);
+}
+
+/* Theme-aware primary CTA gradient */
+.cs-cta-primary {
+  background-image: linear-gradient(to right, var(--cta-from), var(--cta-to));
+  color: var(--text-on-accent);
+}
+
+/* Custom Range Slider */
+input[type="range"].cs-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+input[type="range"].cs-slider:focus {
+  outline: none;
+}
+
+input[type="range"].cs-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px var(--slider-focus-ring), var(--slider-thumb-shadow);
+}
+
+input[type="range"].cs-slider:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px var(--slider-focus-ring), var(--slider-thumb-shadow);
+}
+
+input[type="range"].cs-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    var(--cta-from) 0%,
+    var(--cta-to) var(--slider-pct, 50%),
+    var(--surface-track) var(--slider-pct, 50%),
+    var(--surface-track) 100%
+  );
+  transition: background 120ms ease;
+}
+
+input[type="range"].cs-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  border-radius: 9999px;
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+  box-shadow: var(--slider-thumb-shadow);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 160ms ease;
+}
+
+input[type="range"].cs-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+input[type="range"].cs-slider:active::-webkit-slider-thumb {
+  transform: scale(0.98);
+}
+
+input[type="range"].cs-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--surface-track);
+}
+
+input[type="range"].cs-slider::-moz-range-progress {
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, var(--cta-from), var(--cta-to));
+}
+
+input[type="range"].cs-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--slider-thumb-bg);
+  border: 2px solid var(--slider-thumb-border);
+  box-shadow: var(--slider-thumb-shadow);
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Select chevron handling */
+select.cs-select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Subtle hero card float */
+@keyframes cs-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.cs-float {
+  animation: cs-float 6s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glass-card,
+  .glass-card-interactive,
+  input[type="range"].cs-slider::-webkit-slider-thumb,
+  .cs-gauge-arc,
+  .cs-bar-fill,
+  .cs-float {
+    transition: none !important;
+    animation: none !important;
+  }
+  .glass-card-interactive:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0F172A !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cs-no-print {
+    display: none !important;
+  }
+
+  .cs-print-modal-root {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    overflow: visible !important;
+  }
+
+  .cs-print-scroll-body {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+  }
+
+  .cs-certificate-page {
+    background: #ffffff !important;
+    color: #0F172A !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 20px 24px !important;
+    margin: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .cs-cert-tile {
+    background: #F8FAFC !important;
+    border-color: #E2E8F0 !important;
+  }
+
+  .cs-cert-border {
+    border-color: #CBD5E1 !important;
+  }
+
+  .cs-cert-divide > :not(:first-child) {
+    border-color: #E2E8F0 !important;
+  }
+
+  .cs-cert-muted {
+    color: #475569 !important;
+  }
+
+  .cs-cert-track {
+    stroke: #E2E8F0 !important;
+  }
+
+  .cs-cert-icon-box {
+    background: #ECFDF5 !important;
+    border-color: #A7F3D0 !important;
+    color: #059669 !important;
+  }
+
+  .cs-cert-score-good {
+    color: #059669 !important;
+  }
+
+  .cs-cert-score-fair {
+    color: #D97706 !important;
+  }
+
+  .cs-cert-score-poor {
+    color: #E11D48 !important;
+  }
+}
